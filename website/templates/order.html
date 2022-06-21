@@ -1,0 +1,265 @@
+{% extends "base.html" %}
+{% block title %}Order{% endblock %}
+
+{% block content %}
+
+<!--order starts -->
+
+        <div class="order" id="order" method="POST">
+            <h1 class="order-here"></h1>
+
+            <!--<div class="order" id="order">-->
+            
+            <!-- <ul>
+                {% for item in user.order_details %}
+                {{item.data}}
+                {% endfor %}
+
+                {% for quantity in user.order_details %}
+                {{item.data}}
+                {% endfor %}
+
+                {% for amount in user.order_details %}
+                {{item.data}}
+                {% endfor %}
+            </ul> -->
+
+            <table id="table">
+                <tr>
+                    <th><h4>Select</h4></th>
+                    <th><h4>Product</h4></th>
+                    <th><h4>Quantity</h4></th>
+                    <th><h4>Amount(&#8377)</h4></th>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>
+                        <div class="cart-info">
+                            <img class="cart-info-img" src="/static/latte-image.png">
+                            <div>
+                                <h4>Latte</h4>
+                                <small>price:&#8377 180</small><br>
+                            </div>
+                        </div>
+                    </td>
+                    <td><input type="number" value="0" onkeyup="mul(this.value,180);"></td>
+                    <td><output type="text" value="0" id="subtotal"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>
+                        <div class="cart-info">
+                            <img class="cart-info-img" src="/static/mocha-image.png">
+                            <div>
+                                <h4>Mocha</h4>
+                                <small>price:&#8377 190</small><br>
+                            </div>
+
+
+                        </div>
+                    </td>
+                    <td><input type="number" value="0" onkeyup="mul1(this.value,190);"></td>
+                    <td><output type="text" value="0" id="subtotal1"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>
+                        <div class="cart-info">
+                            <img class="cart-info-img" src="/static/cappuccino-image.png">
+                            <div>
+                                <h4>Cappuccino</h4>
+                                <small>price:&#8377 180</small><br>
+                            </div>
+                        </div>
+                    </td>
+                    <td><input type="number" value="0" onkeyup="mul2(this.value,180);"></td>
+                    <td><output type="text" value="0" id="subtotal2"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>
+                        <div class="cart-info">
+                            <img class="cart-info-img" src="/static/americano-image.jpeg">
+                            <div>
+                                <h4>Americano</h4>
+                                <small>price:&#8377 160</small><br>
+                            </div>
+                        </div>
+                    </td>
+                    <td><input type="number" value="0" onkeyup="mul3(this.value,160);"></td>
+                    <td><output type="text" value="0" id="subtotal3"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>
+                        <div class="cart-info">
+                            <img class="cart-info-img" src="/static/menu-1.jpg">
+                            <div>
+                                <h4>Pizza</h4>
+                                <small>price:&#8377 400</small><br>
+                            </div>
+                        </div>
+                    </td>
+                    <td><input type="number" value="0" onkeyup="mul4(this.value,400);"></td>
+                    <td><output type="text" value="0" id="subtotal4"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>
+                        <div class="cart-info">
+                            <img class="cart-info-img" src="/static/menu-2.jpg">
+                            <div>
+                                <h4>Burger</h4>
+                                <small>price:&#8377 150</small><br>
+                            </div>
+                        </div>
+                    </td>
+                    <td><input type="number" value="0" onkeyup="mul5(this.value,150);"></td>
+                    <td><output type="text" value="0" id="subtotal5"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>
+                        <div class="cart-info">
+                            <img class="cart-info-img" src="/static/menu-3.jpg">
+                            <div>
+                                <h4>Blueberry Pancake</h4>
+                                <small>price:&#8377 170</small><br>
+                            </div>
+                        </div>
+                    </td>
+                    <td><input type="number" value="0" onkeyup="mul6(this.value,170);"></td>
+                    <td><output type="text" value="0" id="subtotal6"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>
+                        <div class="cart-info">
+                            <img class="cart-info-img" src="/static/menu-4.jpg">
+                            <div>
+                                <h4>Chocolate Waffle</h4>
+                                <small>price:&#8377 250</small><br>
+                            </div>
+                        </div>
+                    </td>
+                    <td><input type="number" value="0" onkeyup="mul7(this.value,250);"></td>
+                    <td><output type="text" value="0" id="subtotal7"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>
+                        <div class="cart-info">
+                            <img class="cart-info-img" src="/static/menu-5.jpg">
+                            <div>
+                                <h4>Chocolate Pancake</h4>
+                                <small>price:&#8377 200</small><br>
+                            </div>
+                        </div>
+                    </td>
+                    <td><input type="number" value="0" onkeyup="mul8(this.value,200);"></td>
+                    <td><output type="text" value="0" id="subtotal8"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>
+                        <div class="cart-info">
+                            <img class="cart-info-img" src="/static/menu-6.jpg">
+                            <div>
+                                <h4>Blueberry cupcakes</h4>
+                                <small>price:&#8377 75</small><br>
+
+                            </div>
+
+                        </div>
+                    </td>
+                    <td><input type="number" value="0" onkeyup="mul9(this.value,75);"></td>
+                    <td><output type="text" value="0" id="subtotal9"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>
+                        <div class="cart-info">
+                            <img class="cart-info-img" src="/static/menu-8.jpg">
+                            <div>
+                                <h4>Fruit Oats</h4>
+                                <small>price:&#8377 240</small><br>
+                            </div>
+                        </div>
+                    </td>
+                    <td><input type="number" value="0" onkeyup="mul10(this.value,240);"></td>
+                    <td><output type="text" value="0" id="subtotal10"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>
+                        <div class="cart-info">
+                            <img class="cart-info-img" src="/static/menu-9.jpg">
+                            <div>
+                                <h4>Orange juice</h4>
+                                <small >price:&#8377 140</small>
+                            </div>
+                            
+                        </div>
+                    </td>
+                    <td><input type="number" value="0" onkeyup="mul11(this.value,140);"></td>
+                    <td><output type="text" value="0" id="subtotal11"></td>
+                </tr>
+
+
+
+            </table>
+
+
+
+
+
+            <div class="total-price">
+                <table>
+                    <tr>
+                        <td>
+                            <button class="payment-btn" onclick="sum();">Check Payable
+                                Amount</button>
+                        </td>
+                        <td>Total amount to be paid &#8377</td>
+                        <td>
+                            <output type="text" id="payable-amount">
+                        </td>
+                        <td>
+                            <button class="place-btn"  >Place Order</button>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        
+                    </tr>
+
+                    <tr>
+                        
+
+                        
+                    </tr>
+                </table>
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <!--order ends-->
+
+        {% endblock %}
