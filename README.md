@@ -4,6 +4,7 @@ The interface is designed using HTML, CSS and JavaScript.
 Established connection to an SQL database via backend using Flask to store the information about customers and orders
 placed
 
+## Installation
 ```bash
 git clone <repo-url>
 ```
